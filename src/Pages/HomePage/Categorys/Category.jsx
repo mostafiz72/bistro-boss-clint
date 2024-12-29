@@ -18,45 +18,47 @@ import SectionTitle from './SectionTitle';
 export default function Category() {
     return (
         <>
-        <SectionTitle
-        heading={"this is a category heading"}
-        subHeading={"this is a category description"}
-        />
-            <Swiper
-                slidesPerView={4}
-                spaceBetween={30}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[Pagination]}
-                className="mySwiper text-white mt-20"
-            >
-                <SwiperSlide>
-                    <img className=' w-full' src={swiper1} alt="" />
-                    <h3 className=' -mt-48 text-2xl text-center pb-5 font-semibold'>Salad</h3>
-                </SwiperSlide>
+            <div className=' my-40'>
+                <SectionTitle
+                    heading={"this is a category heading"}
+                    subHeading={"this is a category description"}
+                />
+                <Swiper
+                    slidesPerView={4}
+                    spaceBetween={30}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[Pagination]}
+                    className="mySwiper text-white mt-20"
+                >
+                    <SwiperSlide>
+                        <img className=' w-full' src={swiper1} alt="" />
+                        <h3 className=' -mt-48 text-2xl text-center pb-5 font-semibold'>Salad</h3>
+                    </SwiperSlide>
 
-                <SwiperSlide>
-                    <img className=' w-full' src={swiper2} alt="" />
-                    <h3 className=' -mt-48 text-2xl text-center font-semibold'>Salad</h3>
-                </SwiperSlide>
+                    <SwiperSlide>
+                        <img className=' w-full' src={swiper2} alt="" />
+                        <h3 className=' -mt-48 text-2xl text-center font-semibold'>Salad</h3>
+                    </SwiperSlide>
 
-                <SwiperSlide>
-                    <img className=' w-full' src={swiper3} alt="" />
-                    <h3 className=' -mt-48 text-2xl text-center font-semibold'>Salad</h3>
-                </SwiperSlide>
+                    <SwiperSlide>
+                        <img className=' w-full' src={swiper3} alt="" />
+                        <h3 className=' -mt-48 text-2xl text-center font-semibold'>Salad</h3>
+                    </SwiperSlide>
 
-                <SwiperSlide>
-                    <img className=' w-full' src={swiper4} alt="" />
-                    <h3 className=' -mt-48 text-2xl text-center font-semibold'>Salad</h3>
-                </SwiperSlide>
+                    <SwiperSlide>
+                        <img className=' w-full' src={swiper4} alt="" />
+                        <h3 className=' -mt-48 text-2xl text-center font-semibold'>Salad</h3>
+                    </SwiperSlide>
 
-                <SwiperSlide>
-                    <img className=' w-full' src={swiper5} alt="" />
-                    <h3 className=' -mt-48 text-2xl text-center font-semibold'>Salad</h3>
-                </SwiperSlide>
+                    <SwiperSlide>
+                        <img className=' w-full' src={swiper5} alt="" />
+                        <h3 className=' -mt-48 text-2xl text-center font-semibold'>Salad</h3>
+                    </SwiperSlide>
 
-            </Swiper>
+                </Swiper>
+            </div>
         </>
     )
 }

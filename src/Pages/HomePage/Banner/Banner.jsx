@@ -9,31 +9,33 @@ import image6 from '../../../assets/home/06.png';
 
 export default function Banner() {
     return (
-        <Carousel autoPlay={true} interval={3000} infiniteLoop={true}>
-            <div>
-                <img src={image1} />
-                <p className="legend">Legend 1</p>
-            </div>
-            <div>
-                <img src={image2} />
-                <p className="legend">Legend 2</p>
-            </div>
-            <div>
-                <img src={image3} />
-                <p className="legend">Legend 3</p>
-            </div>
-            <div>
-                <img src={image4} />
-                <p className="legend">Legend 4</p>
-            </div>
-            <div>
-                <img src={image5} />
-                <p className="legend">Legend 5</p>
-            </div>
-            <div>
-                <img src={image6} />
-                <p className="legend">Legend 6</p>
-            </div>
-        </Carousel>
+        <div className=" mb-20">
+            <Carousel autoPlay={true} interval={3000} infiniteLoop={true}>
+                <div>
+                    <img src={image1} />
+                    <p className="legend">Legend 1</p>
+                </div>
+                <div>
+                    <img src={image2} />
+                    <p className="legend">Legend 2</p>
+                </div>
+                <div>
+                    <img src={image3} />
+                    <p className="legend">Legend 3</p>
+                </div>
+                <div>
+                    <img src={image4} />
+                    <p className="legend">Legend 4</p>
+                </div>
+                <div>
+                    <img src={image5} />
+                    <p className="legend">Legend 5</p>
+                </div>
+                <div>
+                    <img src={image6} />
+                    <p className="legend">Legend 6</p>
+                </div>
+            </Carousel>
+        </div>
     )
 }
