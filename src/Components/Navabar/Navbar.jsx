@@ -54,7 +54,7 @@ export default function Navbar() {
             {user && user.email ? <li><NavLink to="/favoritesmovies">My Favorites</NavLink></li> : ''} */}
             {<li><NavLink to="/extraone">Dashboard</NavLink></li>}
             {<li><NavLink to="/menu">Our Menu</NavLink></li>}
-            {<li><NavLink to="/extratwo">Our Shop</NavLink></li>}
+            {<li><NavLink to="/order">Our Shop</NavLink></li>}
             {<li><NavLink to="/admin">Delivary</NavLink></li>}
           </ul>
         </div>

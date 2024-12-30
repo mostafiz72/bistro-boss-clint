@@ -34,6 +34,7 @@ export default function Menu() {
 
             />
             <MenuCategory itemName={salad} ></MenuCategory>
+            <button className=' btn btn-info mb-10'>order</button>
             <Cover img={saladbg} title={"salad"} />
             <MenuCategory itemName={offered} ></MenuCategory>
             <Cover img={CoverImg} title={"offered"} />
