@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function MenuCategory({ itemName }) {
-    
+
     return (
         <>
             <div className='  grid grid-cols-2 my-20 gap-20'>

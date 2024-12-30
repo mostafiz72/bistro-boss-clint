@@ -9,6 +9,7 @@ import CoverImg4 from '../../assets/menu/pizza-bg.jpg'
 import UseMenu from '../../Hooks/MenuItems/UseMenu'
 import MenuCategory from '../MenuCategory/MenuCategory'
 import SectionTitle from '../HomePage/Categorys/SectionTitle'
+import { Link } from 'react-router-dom'
 
 export default function Menu() {
 
@@ -25,7 +26,7 @@ export default function Menu() {
         <>
             <Helmet><title>Bistro Boss | Menu</title></Helmet>
             <div className=' mb-20'>
-            <Cover img={CoverImg} title={"OUR MENU"} />
+                <Cover img={CoverImg} title={"OUR MENU"} />
             </div>
             <SectionTitle
                 heading={"Don't miss"}
@@ -34,17 +35,34 @@ export default function Menu() {
 
             />
             <MenuCategory itemName={salad} ></MenuCategory>
-            <button className=' btn btn-info mb-10'>order</button>
+            <div className=' text-center'>
+                <Link to={`/order/salad`} className=' btn btn-info mb-10'>Order Now</Link>
+            </div>
             <Cover img={saladbg} title={"salad"} />
             <MenuCategory itemName={offered} ></MenuCategory>
+            <div className=' text-center'>
+                <Link to={`/order/offered`} className=' btn btn-info mb-10'>Order Now</Link>
+            </div>
             <Cover img={CoverImg} title={"offered"} />
             <MenuCategory itemName={dessert} ></MenuCategory>
+            <div className=' text-center'>
+                <Link to={`/order/dessert`} className=' btn btn-info mb-10'>Order Now</Link>
+            </div>
             <Cover img={dessertbg} title={"dessert"} />
             <MenuCategory itemName={drinks} ></MenuCategory>
+            <div className=' text-center'>
+                <Link to={`/order/drinks`} className=' btn btn-info mb-10'>Order Now</Link>
+            </div>
             <Cover img={soupbg} title={"drinks"} />
             <MenuCategory itemName={pizza} ></MenuCategory>
+            <div className=' text-center'>
+                <Link to={`/order/pizza`} className=' btn btn-info mb-10'>Order Now</Link>
+            </div>
             <Cover img={CoverImg4} title={"pizza"} />
             <MenuCategory itemName={soup} ></MenuCategory>
+            <div className=' text-center'>
+                <Link to={`/order/soup`} className=' btn btn-info mb-10'>Order Now</Link>
+            </div>
         </>
     )
 }
