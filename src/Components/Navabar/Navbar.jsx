@@ -44,17 +44,18 @@ export default function Navbar() {
 
       <nav className=' flex justify-between items-center text-lg font-semibold w-11/12 md:container mx-auto py-5'>
         {/* <button onClick={handleHiddenShowing} className=' font-bold text-2xl cursor-pointer md:hidden'><FaBarsStaggered /></button> */}
-        <Link to="/" className=' font-bold text-xl md:text-2xl cursor-pointer hidden md:block'>Movie Portal</Link>
+        <Link to="/" className=' font-bold text-xl md:text-2xl cursor-pointer hidden md:block'>Bistro Boss</Link>
         {/* ekhane bola hoyse jodi user er mordhe kicu thake ta hole tumi amake tar nam ta show koro na hole error deyo na */}
         <div className=' hidden lg:block'>
           <ul className=' flex items-center gap-8'>
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/allmovives">All Movies</NavLink></li>
+            <li><NavLink to="/allmovives">Contact Us</NavLink></li>
             {/* {user && user.email? <li><NavLink to="/addmovies">Add Movie</NavLink></li>: ''}
             {user && user.email ? <li><NavLink to="/favoritesmovies">My Favorites</NavLink></li> : ''} */}
-            {<li><NavLink to="/extraone">Present Movie</NavLink></li>}
-            {<li><NavLink to="/extratwo">Movie Shotting</NavLink></li>}
-            {<li><NavLink to="/admin">Admin</NavLink></li>}
+            {<li><NavLink to="/extraone">Dashboard</NavLink></li>}
+            {<li><NavLink to="/menu">Our Menu</NavLink></li>}
+            {<li><NavLink to="/extratwo">Our Shop</NavLink></li>}
+            {<li><NavLink to="/admin">Delivary</NavLink></li>}
           </ul>
         </div>
         <div className=' flex items-center gap-5'>
