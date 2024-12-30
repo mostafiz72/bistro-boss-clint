@@ -6,6 +6,7 @@ import 'react-tabs/style/react-tabs.css';
 import UseMenu from '../../Hooks/MenuItems/UseMenu';
 import ShopCategoryData from './ShopCategoryDate/shopCategoryData';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 export default function Shop() {
     const categories = ["salad", "pizza", "dessert", "soup", "drinks"]
@@ -23,6 +24,7 @@ export default function Shop() {
 
     return (
         <>
+            <Helmet><title>Bistro Boss | Shop</title></Helmet>
             <Cover img={CoverImg} title={"our shop"} />
             <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList>

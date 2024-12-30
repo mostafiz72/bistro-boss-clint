@@ -7,7 +7,7 @@ export default function ShopCategoryData({ item }) {
         <>
                 <div className=' flex justify-between items-center my-10'>
                     <span className=' text-2xl font-bold'>Total Foods Items ({item.length})</span>
-                    <button className=' btn btn-primary font-semibold text-xl'>Sort By Price</button>
+                    <button disabled={!item.length} className=' btn btn-primary font-semibold text-xl'>Sort By Price</button>
                 </div>
             <div className=' grid grid-cols-3 gap-10 mb-20'>
                 {
