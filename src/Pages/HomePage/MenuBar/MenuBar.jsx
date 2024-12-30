@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import SectionTitle from '../Categorys/SectionTitle'
+import UseMenu from '../../../Hooks/MenuItems/UseMenu'
 
 export default function MenuBar() {
-
-    const [data, setData] = useState([])
-
-
-    useEffect(() => {
-        fetch('menu.json')
-            .then(response => response.json())
-            .then(data => {
-                const popular = data.filter(item => item.category === "popular")
-                setData(popular)
-            })
-    }, [])
+         const [ menu ] = UseMenu();
+         
+        const popular = menu.filter(item => item.category === "popular")
+        console.log(popular);
+        
 
     return (
         <>
@@ -26,7 +20,7 @@ export default function MenuBar() {
 
             <div className='  grid grid-cols-2 my-20 gap-20'>
                 {
-                    data.map(item => (
+                    popular.map(item => (
                         <div key={item.id} className=" flex justify-between">
                             <div className=' flex gap-5 items-center'>
                                 <img className=' w-36 rounded-tr-full rounded-br-full rounded-bl-full' src={item.image} alt={item.name} />
