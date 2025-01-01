@@ -7,15 +7,15 @@ export default function MainLayout() {
 
     const location = useLocation();
     console.log(location);
-    
+    const noHeaderFotter = location.pathname.includes('/login');
 
     return (
         <>
-            <Navbar />
+            { noHeaderFotter || <Navbar /> }
             <div className=' container mx-auto'>
                 <Outlet />
             </div>
-            <Footer />
+            { noHeaderFotter || <Footer /> }
         </>
     )
 }

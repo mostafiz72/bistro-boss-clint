@@ -5,3 +5,7 @@
 a.active{
   color: red;
 }
+
+.capcha{
+  color: white !important;
+}
