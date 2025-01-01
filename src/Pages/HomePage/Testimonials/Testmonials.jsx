@@ -15,7 +15,7 @@ export default function Testmonials() {
     const [review, setReview] = useState([])
 
     useEffect(() => {
-        fetch('review.json')
+        fetch(`${import.meta.env.VITE_dataApi}/review`)
             .then(response => response.json())
             .then(data => setReview(data))
     }, [])
