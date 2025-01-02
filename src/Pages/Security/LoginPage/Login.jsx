@@ -4,23 +4,22 @@ import { FaGoogle } from 'react-icons/fa';
 import { IoMdClose, IoMdEye, IoMdEyeOff } from 'react-icons/io'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import LoginLottile from '../../../assets/Lotti/Login.json'
-// import { AuthContext } from '../Context/AuthContext/AuthProvider';
-// import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 // import LoginGoogle from '../GoogleLogin/LoginGoogle';
 // import axios from 'axios';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from '../../../AuthProviders/AuthProvider';
 
 export default function Login() {
-
-    const capchaValue = useRef();
-
-    const Navigate = useNavigate();
+    
     const location = useLocation();
-    const from = location.state || "/";
+    const Navigate = useNavigate();
+    let from = location.state?.from?.pathname || '/'
+
+    const { SignInUser, setUser } = useContext(AuthContext)
 
 
-    // const { SignInUser, setUser } = useContext(AuthContext)
     const [show, setShow] = useState(false);
 
     const handleShow = () => {
@@ -35,27 +34,21 @@ export default function Login() {
         const password = form.get("password");
         // console.log({ email, password })
 
-        // SignInUser(email, password)
-        //     .then(result => {
-        //         // setUser(result.user);
-        //         toast.success("Login Success");
-        //         /// if jodin user sunnces then create jsob web tokens-----------
-        //         const users = { email: email };
-        //         axios.post("http://localhost:5000/jwt", users, {
-        //             withCredentials: true  // ai j qequest ta jassche Cookize a sei tumi allow kore dau and cookie te save korar permition dei /// ami backend er kono kicu pathonor permition dei.
-        //         })
-        //             .then(res => {
-        //                 console.log(res.data);
+        SignInUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                setUser(result.user);
+                toast.success("Login Success");
 
-        //             })
-
-        //         // setTimeout(()=>{
-        //         //     Navigate(from);
-        //         // }, 3000)
-        //     })
-        //     .catch(error => {
-        //         toast.error("Something went wrong " + error.message)
-        //     })
+                setTimeout(()=>{
+                    Navigate(from);
+                }, 3000)
+            })
+            .catch(error => {
+                // toast.error("Something went wrong " + error.message)
+                console.log(error.message);
+                
+            })
     }
 
     /// useing the capcah code in -----------------
@@ -71,7 +64,8 @@ export default function Login() {
 
     const handleCaptcha = (e) => {
         e.preventDefault();
-        const capcah = capchaValue.current.value;
+
+        const capcah = e.target.value;
       
         if(validateCaptcha(capcah)){
           setDesiable(false);
@@ -80,7 +74,7 @@ export default function Login() {
             setDesiable(true);
         }
 
-        capchaValue.current.value = "";
+        capcah.value = "";
         
     }
 
@@ -119,10 +113,8 @@ export default function Login() {
                                     <label className="label">
                                         <span className="label-text capcha"><LoadCanvasTemplate /></span>
                                     </label>
-                                    <input type='text' name='capcha' ref={capchaValue} placeholder="Type ovd capcha" className="input input-bordered bg-white" required />
-                                   <label className="label">
-                                        <Link onClick={handleCaptcha} className=" btn btn-info text-white btn-xs">Submit Capcha</Link>
-                                    </label>
+                                    <input onBlur={handleCaptcha} type='text' name='capcha' placeholder="Type ovd capcha" className="input input-bordered bg-white" />
+                                   
                                 </div>
 
                                 {/* end  the capcha code in react simple capcha */}
