@@ -16,13 +16,18 @@ export default function Login() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        signUpUser(data.email, data.password)
+        console.log(data);
+        
+        signUpUser(data.email, data.password, data.name, data.photo)
             .then(result => {
                 setUser(result.user);
                 console.log(result.user);
-                // toast.success("Register Success")
-
-                // Navigate(location?.state ? location.state : "/")
+                updataprofile({displayName: data.name, photoURL: data.photo})
+                .then(res => {
+                })
+                .catch(err => {
+                    console.log(err.message);
+                })
                 setTimeout(() => {
                     Navigate("/")
                 }, 3000)
@@ -36,7 +41,7 @@ export default function Login() {
 
     const Navigate = useNavigate();
 
-    const { signUpUser, setUser } = useContext(AuthContext)
+    const { signUpUser, setUser, updataprofile } = useContext(AuthContext)
     const [show, setShow] = useState(false);
 
     const handleShow = () => {

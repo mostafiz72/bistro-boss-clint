@@ -30,8 +30,7 @@ export default function Category() {
                         clickable: true,
                     }}
                     modules={[Pagination]}
-                    className="mySwiper text-white mt-20"
-                >
+                    className="mySwiper text-white mt-20">
                     <SwiperSlide>
                         <img className=' w-full' src={swiper1} alt="" />
                         <h3 className=' -mt-48 text-2xl text-center pb-5 font-semibold'>Salad</h3>
@@ -56,7 +55,6 @@ export default function Category() {
                         <img className=' w-full' src={swiper5} alt="" />
                         <h3 className=' -mt-48 text-2xl text-center font-semibold'>Salad</h3>
                     </SwiperSlide>
-
                 </Swiper>
             </div>
         </>
