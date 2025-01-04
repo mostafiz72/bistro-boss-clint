@@ -4,6 +4,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { MdLogout } from 'react-icons/md';
 import { FaOpencart, FaRegUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProviders/AuthProvider';
+import useCart from '../../Hooks/useCart';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css'
 
@@ -12,6 +13,7 @@ export default function Navbar() {
   const [show, setShow] = useState(false);
   const { user, signOutUser } = useContext(AuthContext);
   const location = useLocation();
+  const [cart] = useCart();
 
   const handleSignOut = () => {
     signOutUser()
@@ -57,7 +59,7 @@ export default function Navbar() {
               {<li><NavLink to="/order/salad">Our Shop</NavLink></li>}
               {<li><NavLink to="/admin">Delivary</NavLink></li>}
               <li className=' mb-6'><NavLink to="/carts">
-                <div className="badge badge-secondary">+0</div>
+                <div className="badge badge-secondary">+{cart.length}</div>
               <FaOpencart />
               </NavLink></li>
             </ul>

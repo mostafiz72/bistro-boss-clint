@@ -60,7 +60,7 @@ export default function Login() {
 
     /// Validate captcha  ---------------
 
-    const [ desiable, setDesiable ] = useState(true);
+    const [ desiable, setDesiable ] = useState(false);
 
     const handleCaptcha = (e) => {
         e.preventDefault();
