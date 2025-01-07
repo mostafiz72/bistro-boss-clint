@@ -58,10 +58,8 @@ export default function Navbar() {
               {<li><NavLink to="/menu">Our Menu</NavLink></li>}
               {<li><NavLink to="/order/salad">Our Shop</NavLink></li>}
               {<li><NavLink to="/admin">Delivary</NavLink></li>}
-              <li className=' mb-6'><NavLink to="/carts">
-                <div className="badge badge-secondary">+{cart.length}</div>
-              <FaOpencart />
-              </NavLink></li>
+              <li className=' mb-6'><NavLink to="/dashboard">
+                <div className="badge badge-secondary">+{cart.length}</div><FaOpencart /> </NavLink></li>
             </ul>
           </div>
           <div className=' flex items-center gap-5'>
