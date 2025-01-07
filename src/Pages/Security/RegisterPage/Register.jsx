@@ -7,30 +7,52 @@ import RegisterLottile from '../../../assets/Lotti/Register.json'
 import Projapoti from '../../../assets/Lotti/projapoti.json'
 import { AuthContext } from '../../../AuthProviders/AuthProvider';
 import { useForm } from 'react-hook-form';
+import useAxiosPublic from '../../../Hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
+import SocialLogin from '../../../Components/SocialLogin/SocialLogin';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 // import LoginGoogle from '../GoogleLogin/LoginGoogle';
 
-export default function Login() {
+export default function Register() {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const axiosPublic = useAxiosPublic();
+
 
     const onSubmit = data => {
         console.log(data);
-        
+
         signUpUser(data.email, data.password, data.name, data.photo)
             .then(result => {
                 setUser(result.user);
                 console.log(result.user);
-                updataprofile({displayName: data.name, photoURL: data.photo})
-                .then(res => {
-                })
-                .catch(err => {
-                    console.log(err.message);
-                })
-                setTimeout(() => {
-                    Navigate("/")
-                }, 3000)
+                updataprofile({ displayName: data.name, photoURL: data.photo })
+                    .then(res => {
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+
+                        axiosPublic.post("/users", userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    Swal.fire({
+                                        title: "Registration Successful",
+                                        text: "You have successfully registered",
+                                        icon: "success",
+                                        confirmButtonText: false,
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                    })
+                                    Navigate("/")
+                                }
+                            })
+
+                    })
+                    .catch(err => {
+                        console.log(err.message);
+                    })
             })
             .catch(error => {
                 // toast.error("Something went wrong " + error.message)
@@ -104,6 +126,8 @@ export default function Login() {
                                 <div className="form-control flex flex-col justify-center w-full">
                                     <p className=' text-right mb-3 font-semibold'>Already Have An Account ? <Link to="/login" className="text-red-500 hover:underline">Login</Link></p>
                                     <input type="submit" value="Register" className="btn btn-primary" />
+                                    <div className="divider"></div>
+                                    <SocialLogin />
                                     {/* <LoginGoogle /> */}
                                     {/* <span className=' text-xl my-3 text-center'>or</span> */}
                                     {/* <button onClick={handleLoginWithGoogle} className=' btn btn-accent'> <span className=' text-yellow-400 text-lg'><FaGoogle /></span> Login Wtih Google</button> */}

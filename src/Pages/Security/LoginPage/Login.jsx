@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 // import axios from 'axios';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../../AuthProviders/AuthProvider';
+import SocialLogin from '../../../Components/SocialLogin/SocialLogin';
 
 export default function Login() {
     
@@ -122,6 +123,8 @@ export default function Login() {
                                 <div className="form-control flex flex-col justify-center w-full">
                                     <p className=' text-right mb-3 font-semibold'>Don't Have An Account ? <Link to="/register" className="text-red-500 hover:underline">Register</Link></p>
                                     <button disabled={desiable} className="btn btn-primary">Login</button>
+                                    <div className="divider"></div>
+                                    <SocialLogin />
                                     {/* <LoginGoogle /> */}
                                     {/* <span className=' text-xl my-3 text-center'>or</span> */}
                                     {/* <button onClick={handleLoginWithGoogle} className=' btn btn-accent'> <span className=' text-yellow-400 text-lg'><FaGoogle /></span> Login Wtih Google</button> */}
