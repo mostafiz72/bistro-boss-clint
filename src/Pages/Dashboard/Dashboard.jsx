@@ -6,25 +6,27 @@ import { HiUserGroup } from 'react-icons/hi'
 import { IoHomeSharp } from 'react-icons/io5'
 import { MdContactPhone } from 'react-icons/md'
 import { NavLink, Outlet } from 'react-router-dom'
+import useAdmin from '../../Hooks/useAdmin'
 
 export default function Dashboard() {
 
-  const adminSecure = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <>
       <div className=' container mx-auto flex gap-10'>
         <div className=' w-80 bg-[#05030f] text-gray-800 p-5 h-screen'>
-          <h2 className=' text-3xl font-semibold text-center mb-5 text-slate-400'>Admin Panel</h2>
+          <h2 className=' text-3xl font-semibold text-center mb-5 text-slate-400'> {isAdmin ? "Admin Panel" : "Dashboard"} </h2>
+        
           <ul className=' flex flex-col gap-3'>
             {
-              adminSecure ?
+              isAdmin ?
                 <>
                   <li className=' flex gap-3 justify-start btn  text-left items-center'><IoHomeSharp />
                     <NavLink to="/home">Admin Home</NavLink>
                   </li>
                   <li className=' flex gap-3 justify-start btn  text-left items-center'>
-                  <FaUtensils />
+                    <FaUtensils />
                     <NavLink to='reservation'>Add items</NavLink>
                   </li>
                   <li className=' flex gap-3 justify-start btn  text-left items-center'><BiSolidBarChartAlt2 />
@@ -63,7 +65,7 @@ export default function Dashboard() {
 
           <ul className='  flex flex-col gap-3'>
             <li className=' flex gap-3 justify-start btn  text-left items-center'><IoHomeSharp />
-              <NavLink to="/adminhome">Home</NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li className=' flex gap-3 justify-start btn  text-left items-center'><FaBars />
               <NavLink to="menu">Menu</NavLink>

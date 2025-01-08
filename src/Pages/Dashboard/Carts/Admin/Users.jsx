@@ -1,17 +1,38 @@
 import React from 'react'
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure'
 import { useQuery } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
+import { RiAdminLine } from 'react-icons/ri';
 
 export default function Users() {
 
     const axiosSecure = useAxiosSecure();
-    const { data: users = [] } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get("/users");
             return res.data;
         }
     })
+
+    // user updated role in the database------------
+
+    const handleMakeAdmin = users => {
+        axiosSecure.patch(`/users/admin/${users._id}`)
+        .then(res => {
+            if(res.data.modifiedCount > 0){
+                refetch();
+                Swal.fire({
+                    position: "center center",
+                    title: 'User Updated',
+                    text: `${users.name} is an Admin Now!`,
+                    icon:'success',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        })
+    }
 
     return (
         <>
@@ -25,8 +46,8 @@ export default function Users() {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Items Name</th>
-                            <th>Items Price</th>
+                            <th>Name</th>
+                            <th>Email</th>
                             <th>Items Delete</th>
                         </tr>
                     </thead>
@@ -39,10 +60,11 @@ export default function Users() {
                                     </td>
                                     <td>{item.name}
                                     </td>
-                                    <td className=' btn'>
-                                        Edit
+                                    <td>{item.email}</td>
+                                    <td>
+                                        {item.role === "admin" ? 'Admin' : <button onClick={() => handleMakeAdmin(item)} className=' btn'><RiAdminLine /></button>}
+                                        <button onClick={() => handleDeleteCart(item._id)} className=' btn btn-error ml-3'>Delete</button>
                                     </td>
-                                    <td><button onClick={() => handleDeleteCart(item._id)} className=' btn btn-error'>Delete</button></td>
                                 </tr>
                             ))
                         }
