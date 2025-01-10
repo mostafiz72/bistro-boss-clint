@@ -12,6 +12,8 @@ import PrivateRoute from "./PrivateRoutes/PrivateRoute";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashboardCart from "../Pages/Dashboard/Carts/DashboardCart";
 import Users from "../Pages/Dashboard/Carts/Admin/Users";
+import AddUser from "../Pages/Dashboard/Carts/Admin/AddUser";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -54,7 +56,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/users",
-        element: <Users />
+        element: <AdminRoute><Users /></AdminRoute>
+      },
+      {
+        path: "/dashboard/additems",
+        element: <AdminRoute><AddUser /></AdminRoute> // add user name a kinto item add kora hoytese ekhane user name use kora hoyse.....
+      },
+      {
+        // path: "/dashboard/manageitems",
+        // element: <AdminRoute><AddUser /></AdminRoute> // add user name a kinto item add kora hoytese ekhane user name use kora hoyse.....
       }
     ]
   }

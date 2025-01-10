@@ -27,10 +27,10 @@ export default function Dashboard() {
                   </li>
                   <li className=' flex gap-3 justify-start btn  text-left items-center'>
                     <FaUtensils />
-                    <NavLink to='reservation'>Add items</NavLink>
+                    <NavLink to='/dashboard/additems'>Add items</NavLink>
                   </li>
                   <li className=' flex gap-3 justify-start btn  text-left items-center'><BiSolidBarChartAlt2 />
-                    <NavLink to="/payment">Manage Items</NavLink>
+                    <NavLink to="/dashboard/manageitems">Manage Items</NavLink>
                   </li>
                   <li className=' flex gap-3 justify-start btn  text-left items-center'><FaCartArrowDown />
                     <NavLink to="/mycart">Manage Bookings</NavLink>
