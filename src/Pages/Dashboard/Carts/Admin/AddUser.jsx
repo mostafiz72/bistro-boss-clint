@@ -22,7 +22,7 @@ export default function AddUser() {
                 'content-type': 'multipart/form-data'  // only image uploaded file use korale headers user korte hobe 
             }
         })
-        if(res?.data?.success){  // now send the menu item data to the server with the image url ------------
+        if(res.data.success){  // now send the menu item data to the server with the image url ------------
            const menuItem = {
             name: data.name,
             recipe: data.recipe,
@@ -32,7 +32,7 @@ export default function AddUser() {
            }
            // send the data in the server -----------
            const menuRes = await axiosSecure.post("/menu", menuItem);
-           console.log(menuRes);
+        //    console.log(menuRes);
 
            if(menuRes.data.insertedId){
             reset();

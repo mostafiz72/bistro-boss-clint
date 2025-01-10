@@ -14,6 +14,7 @@ import DashboardCart from "../Pages/Dashboard/Carts/DashboardCart";
 import Users from "../Pages/Dashboard/Carts/Admin/Users";
 import AddUser from "../Pages/Dashboard/Carts/Admin/AddUser";
 import AdminRoute from "./AdminRoute";
+import ManageItems from "../Pages/Dashboard/Carts/Admin/ManageItems";
 
 export const router = createBrowserRouter([
   {
@@ -63,8 +64,8 @@ export const router = createBrowserRouter([
         element: <AdminRoute><AddUser /></AdminRoute> // add user name a kinto item add kora hoytese ekhane user name use kora hoyse.....
       },
       {
-        // path: "/dashboard/manageitems",
-        // element: <AdminRoute><AddUser /></AdminRoute> // add user name a kinto item add kora hoytese ekhane user name use kora hoyse.....
+        path: "/dashboard/manageitems",
+        element: <AdminRoute><ManageItems /></AdminRoute> // add user name a kinto item add kora hoytese ekhane user name use kora hoyse.....
       }
     ]
   }

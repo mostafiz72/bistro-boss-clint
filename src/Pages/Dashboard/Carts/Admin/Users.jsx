@@ -15,6 +15,13 @@ export default function Users() {
         }
     })
 
+    /// delete the users from the database --------------------
+
+    const handleDeleteCart = (id)=> {
+        console.log(id);
+        
+    }
+
     // user updated role in the database------------
 
     const handleMakeAdmin = users => {

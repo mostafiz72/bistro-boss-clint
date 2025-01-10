@@ -57,7 +57,7 @@ export default function DashboardCart() {
             {/* row 1 */}
             {
               cart.map((item, index) => (
-                <tr>
+                <tr key={index}>
                   <td>{index + 1}
                   </td>
                   <td>

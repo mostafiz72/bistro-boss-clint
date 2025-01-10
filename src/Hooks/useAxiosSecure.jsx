@@ -18,7 +18,7 @@ export default function useAxiosSecure() {
     return config;
   }, function (error) {
     return Promise.reject(error);
-  })
+  });
 
   /// intercepts 401 and 403 status requests ------------------------
 
