@@ -4,17 +4,11 @@ import UseMenu from '../../../../Hooks/MenuItems/UseMenu'
 import { FaRegEdit } from 'react-icons/fa';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 export default function ManageItems() {
     const [menu, refetch] = UseMenu();
     const axiosSecure = useAxiosSecure();
-
-    /// Edit the menu items -----------------
-
-    const handleEdit = item => {
-        console.log(item);
-        
-    }
 
     // Delete the menu items ----------------
 
@@ -88,7 +82,7 @@ export default function ManageItems() {
                                         {item.price}
                                     </td>
                                     <td>
-                                        <button onClick={() => handleEdit(item)} className=' btn btn-warning'><FaRegEdit /></button>
+                                        <Link to={`/dashboard/manageitems/${item._id}`} className=' btn btn-warning'><FaRegEdit /></Link>
                                         <button onClick={() => handleDelete(item)} className=' btn btn-error ml-10'>Delete</button>
                                     </td>
                                 </tr>

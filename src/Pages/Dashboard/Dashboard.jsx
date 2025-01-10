@@ -23,7 +23,7 @@ export default function Dashboard() {
               isAdmin ?
                 <>
                   <li className=' flex gap-3 justify-start btn  text-left items-center'><IoHomeSharp />
-                    <NavLink to="/home">Admin Home</NavLink>
+                    <NavLink to="/">Admin Home</NavLink>
                   </li>
                   <li className=' flex gap-3 justify-start btn  text-left items-center'>
                     <FaUtensils />

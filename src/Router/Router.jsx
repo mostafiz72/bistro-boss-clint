@@ -15,6 +15,7 @@ import Users from "../Pages/Dashboard/Carts/Admin/Users";
 import AddUser from "../Pages/Dashboard/Carts/Admin/AddUser";
 import AdminRoute from "./AdminRoute";
 import ManageItems from "../Pages/Dashboard/Carts/Admin/ManageItems";
+import UpdateItems from "../Pages/Dashboard/Carts/Admin/UpdateItems";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,11 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/manageitems",
         element: <AdminRoute><ManageItems /></AdminRoute> // add user name a kinto item add kora hoytese ekhane user name use kora hoyse.....
+      },
+      {
+        path: "/dashboard/manageitems/:id",
+        element: <AdminRoute><UpdateItems /></AdminRoute>, // add user name a kinto item add kora hoytese ekhane user name use kora hoyse.....
+        loader: ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
       }
     ]
   }
